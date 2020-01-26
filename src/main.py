@@ -1,4 +1,5 @@
 import json
+import os
 import time
 
 from elasticsearch import Elasticsearch
@@ -137,7 +138,7 @@ if __name__ == '__main__':
     session.run(tf.tables_initializer())
     print("Done.")
 
-    client = Elasticsearch()
+    client = Elasticsearch(os.getenv("ES_URL"))
 
     index_data()
     run_query_loop()
